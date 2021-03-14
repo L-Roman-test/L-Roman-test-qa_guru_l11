@@ -2,7 +2,11 @@ package config;
 
 import org.aeonbits.owner.Config;
 
-@Config.Sources({"classpath:authorization.properties", "system:properties"})
+@Config.LoadPolicy(Config.LoadType.MERGE)
+@Config.Sources({
+        "system:properties",
+        "classpath:authorization.properties"
+})
 public interface LoginConfig extends Config {
 
     @Key("email")
