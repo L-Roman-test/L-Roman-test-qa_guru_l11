@@ -10,15 +10,19 @@ repositories {
 
 def allureVersion = "2.13.8",
     selenideVersion = "5.19.0",
+    ownerVersion = "1.0.12",
     junitVersion = "5.7.0"
 
 dependencies {
+    implementation("org.aeonbits.owner:owner:$ownerVersion")
+
     testImplementation(
             "com.codeborne:selenide:$selenideVersion",
             "io.qameta.allure:allure-selenide:$allureVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     )
+
     testRuntimeOnly(
             "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     )
