@@ -52,4 +52,14 @@ task web_tests(type: Test) {
     }
 }
 
+if (System.getProperty("threads") != null) {
+    systemProperties += [
+            'junit.jupiter.execution.parallel.enabled'                 : true,
+            'junit.jupiter.execution.parallel.mode.default'            : 'concurrent',
+            'junit.jupiter.execution.parallel.mode.classes.default'    : 'concurrent',
+            'junit.jupiter.execution.parallel.config.strategy'         : 'fixed',
+            'junit.jupiter.execution.parallel.config.fixed.parallelism': System.getProperty("threads").toInteger()
+    ]
+}
+
 
