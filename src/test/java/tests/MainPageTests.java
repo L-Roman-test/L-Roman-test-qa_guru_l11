@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -11,6 +13,7 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @Tag("web")
+@Feature("MainPage Tests")
 public class MainPageTests extends TestBase {
 
     @BeforeEach
@@ -19,6 +22,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @Story("Main page contains six product categories")
     @DisplayName("Page should have product categories in the header")
     public void categoriesTest() {
         step("Check header logo", (step) -> {
@@ -35,6 +39,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @Story("The main page should have information on all brands")
     @DisplayName("All brands should be displayed")
     public void brandsTest() {
         step("Open window with additional information", (step) -> {
@@ -53,6 +58,7 @@ public class MainPageTests extends TestBase {
     }
 
     @Test
+    @Story("The main page should have information on all divisions")
     @DisplayName("All divisions should be displayed")
     public void divisionsTest() {
         step("Open window with additional information", (step) -> {

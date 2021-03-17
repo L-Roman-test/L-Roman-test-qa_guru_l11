@@ -1,5 +1,7 @@
 package tests;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -10,9 +12,11 @@ import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
 @Tag("web")
+@Feature("Souvenir shopping")
 public class SouvenirShoppingTest extends TestBase {
 
     @Test
+    @Story("The user chooses a souvenir from the catalogue and adds it to the card, the price in the card should be the same as in the catalogue")
     @DisplayName("Selected souvenir should be shown in the shopping cart with the correct price")
     public void quicklySouvenirBuyingTest() {
         step("Open and check souvenir page", (step) -> {
