@@ -5,7 +5,7 @@ plugins {
 }
 
 repositories {
-    maven { url = "https://dl.bintray.com/qameta/maven-unstable/" }
+    maven { url = "https://dl.bintray.com/qameta/maven-unstable" }
     mavenCentral()
 }
 
@@ -13,7 +13,7 @@ def allureVersion = "2.13.8",
     selenideVersion = "5.19.0",
     ownerVersion = "1.0.12",
     junitVersion = "5.7.0",
-    allureJunitPlatform = "3.28.2",
+    allureJunitPlatform = "3.38.0",
     aspectjVersion = "1.9.6"
 
 dependencies {
