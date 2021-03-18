@@ -12,14 +12,12 @@ repositories {
 def allureVersion = "2.13.8",
     selenideVersion = "5.19.0",
     ownerVersion = "1.0.12",
-    junitVersion = "5.7.0",
-    allureJunitPlatform = "3.38.0",
+    junitVersion = "5.7.1",
+    allureJunitPlatform = "3.28.2",
     aspectjVersion = "1.9.6",
     logbackVersion = "1.2.3"
 
 dependencies {
-    implementation("org.aeonbits.owner:owner:$ownerVersion")
-
     testImplementation(
             "org.aspectj:aspectjweaver:$aspectjVersion",
             "ch.qos.logback:logback-classic:$logbackVersion",
@@ -28,12 +26,8 @@ dependencies {
             "io.qameta.allure:allure-ee-junit-platform:$allureJunitPlatform",
             "org.aeonbits.owner:owner:$ownerVersion",
             "org.junit.jupiter:junit-jupiter-api:$junitVersion",
-            "org.junit.jupiter:junit-jupiter-params:$junitVersion"
-    )
-
-    testRuntimeOnly(
-            "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
-    )
+            "org.junit.jupiter:junit-jupiter-params:$junitVersion")
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
 }
 
 allure {
