@@ -1,5 +1,7 @@
 package tests;
 
+import com.codeborne.selenide.WebDriverRunner;
+import io.qameta.allure.AllureId;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
@@ -8,9 +10,13 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import settings.TestBase;
 
+import java.util.concurrent.TimeUnit;
+
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static io.qameta.allure.Allure.step;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @Tag("web")
 @Feature("MainPage Tests")
@@ -71,6 +77,19 @@ public class MainPageTests extends TestBase {
             $(".scrollarea-content  [href='http://mmzavod.ru/']").shouldBe(visible);
             $(".scrollarea-content  [href='http://kalashnikov.engineering/']").shouldBe(visible);
             $(".scrollarea-content  [href='http://www.npomolniya.ru/']").shouldBe(visible);
+        });
+    }
+
+    @Test
+    @AllureId("1947")
+    @DisplayName("The main page should have link to kalashnikov media")
+    public void linkToMediaPage() {
+        step("Click on \"Kалашников Media\"", (step) -> {
+            $("[href='https://kalashnikov.media/']").click();
+        });
+        step("Verify that the kalashnikov.media opened", (step) -> {
+            getWebDriver().switchTo().window(String.valueOf(getWebDriver().getWindowHandles().toArray()[1]));
+            assertEquals(getWebDriver().getCurrentUrl(), "https://kalashnikov.media/");
         });
     }
 }
