@@ -26,7 +26,7 @@ public class AttachmentsHelper {
         return ((TakesScreenshot) getWebDriver()).getScreenshotAs(OutputType.BYTES);
     }
 
-    @Attachment(value = "Page source", type = "text/plain")
+    @Attachment(value = "Page source", type = "text/html")
     public static byte[] attachPageSource() {
         return getWebDriver().getPageSource().getBytes(StandardCharsets.UTF_8);
     }
@@ -56,6 +56,6 @@ public class AttachmentsHelper {
     }
 
     public static String getConsoleLogs() {
-        return  String.join("/n", Selenide.getWebDriverLogs(BROWSER));
+        return String.join("\n", Selenide.getWebDriverLogs(BROWSER));
     }
 }
